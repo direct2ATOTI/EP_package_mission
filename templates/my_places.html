@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}웰컴패키지: 내 등록 장소{% endblock %}
+{% block content %}
+
+<div class="inner">
+    <div class="container">
+        <h2>내 등록 장소</h2>
+
+        <h5>{{current_user.name}}님이 등록한 장소는?</h5>
+        <br>
+        <!--Below: Get the "Place" informations of current_user and make a list -->
+        {% for place in all_places %}
+        <div class="card w-75">
+            <div class="card-body" style="border: 1px solid green; ">
+              <h5 class="card-title"><b>{{ place.place_name }}</b>, 추가한 날짜: {{ place.date }}</h5>
+              <p class="card-text">{{ place.location }}</p>
+            </div>
+          </div>
+          <br>
+        {% endfor %}
+        <br>
+        <a href="{{url_for('register_place')}}"><button class="btn-lg btn-success">추가 장소 등록</button></a>
+
+        {% if satisfying %}
+        <a href="{{url_for('select_options')}}"><button class="btn-lg btn-success">웰컴패키지 수령 신청</button></a>
+        {% endif %}
+
+
+    </div>
+</div>
+
+{% endblock %}

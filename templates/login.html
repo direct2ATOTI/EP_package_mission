@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}이용자 등록{% endblock %}
+{% block content %}
+
+<div class="inner">
+    <div class="container">
+        <form class="" action="{{url_for('login')}}" method="post">
+            {{ form.csrf_token }}
+            {{ wtf.quick_form(form, novalidate=True, button_map={"submit":"success"}) }}
+        </form>
+
+        <br>
+        {% with messages = get_flashed_messages() %} 
+        {% if messages %}
+        {% for message in messages %}
+            <p class="flashes">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+
+        <a href="{{url_for('login', forget=True)}}">혹시, 비밀번호를 잊으셨나요?</a>
+    </div>
+</div>
+
+{% endblock %}

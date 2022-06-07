@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}등록 완료{% endblock %}
+{% block content %}
+
+    <div class="inner">
+        <div class="container">
+            <h2 class="complete">✓등록 완료</h2>
+            <br>
+            <a href="{{url_for('my_places')}}"><button class="btn-lg btn-success">장소 목록으로 이동</button></a>
+        </div>
+    </div>
+
+{% endblock %}

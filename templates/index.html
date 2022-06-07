@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}웰컴패키지{% endblock %}
+{% block content %}
+
+<div class="inner">
+    <div class="welcome-container">
+        <img class="orang-logo" src="https://blogpfthumb-phinf.pstatic.net/MjAyMjAzMTVfMjk2/MDAxNjQ3MzM0ODI5NDU1.J6YY9nxUslyUrinC4IXAFtpCidpfMgFHtjSd7Inz6z0g.AURiCJ2I1Aa9modGbQUWrar63hjxyId6r_7d5eq9IDog.JPEG.comeorang/%EB%AA%A8%EB%B0%94%EC%9D%BC_(4).jpg/%25EB%25AA%25A8%25EB%25B0%2594%25EC%259D%25BC%2B%25284%2529.jpg" alt="은평 오랑 로고">
+        <h2>웰컴패키지 수령 미션 참여 페이지</h2>
+        {% if current_user.is_authenticated %}
+        <br>
+        <h5>{{current_user.name}}님, 나만 알고싶었던 장소가 있나요?</h5>
+        <br>
+        <a href="{{url_for('register_place')}}"><button class="btn-lg btn-success">나의 장소 등록</button></a>
+        <a href="{{url_for('my_places')}}"><button class="btn-lg btn-success">내 등록 장소</button></a>
+        <a href="{{url_for('logout')}}"><button class="btn-lg btn-success">로그아웃</button></a>
+        {% else %}
+        <br>
+        <a href="{{url_for('login')}}"><button class="btn-lg btn-success">이용자 로그인</button></a>
+        <a href="{{url_for('register')}}"><button class="btn-lg btn-success">이용자 등록</button></a>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

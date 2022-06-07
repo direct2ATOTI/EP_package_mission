@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}웰컴패키지: 옵션 선택{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h2>{{ current_user.name }}님, 둘 중 하나의 웰컴패키지를 선택하실 수 있어요!</h2>
+    <form action="{{ url_for('') }}" class="package-form">
+        <input type="radio" name="" id="">
+    </form>
+</div>
+
+
+{% endblock %}
